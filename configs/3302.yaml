@@ -18,7 +18,7 @@ occlusion_time: 0
 
 # Model
 pretrained: True
-model_stream: 3
+model_stream: 2
 gcn_kernel_size: [5,2]
 drop_prob: 0.5
 
