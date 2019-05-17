@@ -50,7 +50,7 @@ You should put these models into the **'models'** folder.
 Before training and evaluating, there are some parameters should be noticed.
 
 * (1) **'--path'** or **'-p'**: The path to skeletons files. You should modify its default value in the **'main.py'**. 
-For example, if your skeleton files are stored in `<your_path>/skeleton/`, then the '--path' parameter should be set to `<your_path>/skeleton/`.
+For example, if your skeleton files are stored in `<your_path>/skeleton/`, then the **'--path'** parameter should be set to `<your_path>/skeleton/`.
 
 * (2) **'--config_id'** or **'-c'**: The config of RA-GCN. You must use this parameter in the command line or the program will output an error. 
 There are 4 configs given in the **configs** folder, which can be illustrated in the following tabel.
