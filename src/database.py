@@ -14,7 +14,7 @@ class NTU(Dataset):
         if not os.path.exists('./datasets/' + setting + '_' + type + '.txt'):
             self.get_train_list()
 
-        fr = open(path + setting + '_' + type + '.txt', 'r')
+        fr = open('./datasets/' + setting + '_' + type + '.txt', 'r')
         self.files = fr.readlines()
         fr.close()
 
