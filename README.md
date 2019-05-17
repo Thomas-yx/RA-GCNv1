@@ -11,7 +11,7 @@ RA-GCN is a GCN model for incomplete skeleton-based action recognition. The foll
 </div>
 
 The incomplete skeleton samples are illustrated by
-<div align="center" width="280" height="160">
+<div align="center">
     <img src="resources/incomplete.png">
 </div>
 
