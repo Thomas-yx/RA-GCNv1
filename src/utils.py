@@ -1,0 +1,43 @@
+import os
+import shutil
+import pynvml
+import torch
+
+
+def check_gpu(gpus):
+    if len(gpus) > 0 and torch.cuda.is_available():
+        pynvml.nvmlInit()
+        for i in gpus:
+            handle = pynvml.nvmlDeviceGetHandleByIndex(i)
+            meminfo = pynvml.nvmlDeviceGetMemoryInfo(handle)
+            memused = meminfo.used / 1024 / 1024
+            print('GPU{} used: {}M'.format(i, memused))
+            if memused > 1000:
+                pynvml.nvmlShutdown()
+                raise ValueError('GPU{} are occupied!'.format(i))
+        pynvml.nvmlShutdown()
+        return torch.device('cuda')
+    else:
+        print('Using CPU!')
+        return torch.device('cpu')
+
+
+def load_checkpoint(fname='checkpoint'):
+    fpath = './models/' + fname + '.pth.tar'
+    if os.path.isfile(fpath):
+        checkpoint = torch.load(fpath)
+        return checkpoint
+    else:
+        raise ValueError('Do NOT exist this checkpoint: {}'.format(fname))
+
+
+def save_checkpoint(model, optimizer, epoch, best, is_best, model_name):
+    if not os.path.exists('./models'):
+        os.mkdir('./models')
+    for key in model.keys():
+        model[key] = model[key].cpu()
+    checkpoint = {'model':model, 'optimizer':optimizer, 'epoch':epoch, 'best':best}
+    torch.save(checkpoint, './models/checkpoint.pth.tar')
+    if is_best:
+        shutil.copy('./models/checkpoint.pth.tar', './models/' + model_name + '.pth.tar')
+
