@@ -1,0 +1,4 @@
+pyyaml
+argparse
+numpy
+nvidia-ml-py3
