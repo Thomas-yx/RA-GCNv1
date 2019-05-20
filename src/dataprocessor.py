@@ -39,7 +39,7 @@ class Occlusion_part():
 
 class Occlusion_time():
     def __init__(self, occlusion_time):
-        self.occlusion_time = occlusion_time // 2
+        self.occlusion_time = int(occlusion_time // 2)
 
     def __call__(self, x):
         if not self.occlusion_time == 0:
