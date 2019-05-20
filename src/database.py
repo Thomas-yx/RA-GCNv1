@@ -71,10 +71,8 @@ class NTU(Dataset):
             file_name = file.split('.')[0]
             if file_name in ignore_names:
                 continue
-            cv = file_name.split('C')[1]
-            cv = int(cv.split('P')[0])
-            cs = file_name.split('P')[1]
-            cs = int(cs.split('R')[0])
+            cv = int(file_name[5:8])
+            cs = int(file_name[9:12])
 
             if cv == 1:
                 f_cv_eval.write(file_name+'\n')
