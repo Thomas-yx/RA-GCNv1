@@ -106,8 +106,7 @@ python main.py -c <config_id> -e -op <occlusion_part>
 (or)
 python main.py -c <config_id> -e -ot <occlusion_time>
 ```
-where `<occlusion_part>` denotes the occluded part. (choices, [1,2,3,4,5] means left arm, right arm, two hands, two legs and trunk, respectively)
-
+where `<occlusion_part>` denotes the occluded part (choices, [1,2,3,4,5] means left arm, right arm, two hands, two legs and trunk, respectively), 
 `<occlusion_time>` denotes the number of occluded frames (choices, [10,20,30,40,50]).
 
 ### 4.4 Visualization
