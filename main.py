@@ -85,8 +85,8 @@ def Init_parameters():
     parser.add_argument('--batch_size', '-bs', type=int, default=16, help='batch size')
     parser.add_argument('--data_transform', '-dt', default=False, action='store_true', 
                         help='channel 0~2: original data, channel 3~5: next_frame - now_frame, channel 6~8: skeletons_all - skeleton_2')
-    parser.add_argument('--occlusion_part', '-op', type=int, nargs='+', default=[], choices=[0, 1, 2, 3, 4], 
-                        help='0:left arm, 1:right arm, 2:two hands, 3:two legs, 4:trunk')
+    parser.add_argument('--occlusion_part', '-op', type=int, nargs='+', default=[], choices=[1, 2, 3, 4, 5], 
+                        help='1:left arm, 2:right arm, 3:two hands, 4:two legs, 5:trunk')
     parser.add_argument('--occlusion_time', '-ot', type=float, default=0, 
                         help='0 to 100, number of occlusion frames in first 100 frames')
 
