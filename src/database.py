@@ -62,11 +62,18 @@ class NTU(Dataset):
         f_cs_eval = open('./datasets/cs_eval.txt', 'w')
         f_cv_eval = open('./datasets/cv_eval.txt', 'w')
 
+        f_ignore = open('./datasets/ignore.txt','r')
+        ignore_names = f_ignore.readlines()
+        ignore_names = [name.strip() for name in ignore_names]
+        f_ignore.close()
+
         for file in files:
             file_name = file.split('.')[0]
-            cv = file.split('C')[1]
+            if file_name in ignore_names:
+                continue
+            cv = file_name.split('C')[1]
             cv = int(cv.split('P')[0])
-            cs = file.split('P')[1]
+            cs = file_name.split('P')[1]
             cs = int(cs.split('R')[0])
 
             if cv == 1:
