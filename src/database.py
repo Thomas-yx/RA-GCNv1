@@ -27,7 +27,7 @@ class NTU(Dataset):
 
         data = np.zeros((self.maxC, self.maxT, self.maxV, self.maxM))
         location = np.zeros((2, self.maxT, self.maxV, self.maxM))
-        with open(self.path + file_name + '.skeleton', 'r') as fr:
+        with open(self.path + file_name, 'r') as fr:
             frame_num = int(fr.readline())
             for frame in range(frame_num):
                 if frame >= self.maxT:
@@ -54,7 +54,8 @@ class NTU(Dataset):
         return data, location, label, file_name
 
     def get_train_list(self):
-        files = os.listdir(self.path)
+        folder = '/nturgbd_skeletons_s001_to_s017/'
+        files = os.listdir(self.path + folder)
         if not os.path.exists('./datasets'):
             os.mkdir('./datasets')
         f_cs_train = open('./datasets/cs_train.txt', 'w')
@@ -75,17 +76,16 @@ class NTU(Dataset):
             cs = int(file_name[9:12])
 
             if cv == 1:
-                f_cv_eval.write(file_name+'\n')
+                f_cv_eval.write(folder + file + '\n')
             else:
-                f_cv_train.write(file_name+'\n')
+                f_cv_train.write(folder + file + '\n')
 
             if cs in [3,6,7,10,11,12,20,21,22,23,24,26,29,30,32,33,36,37,39,40]:
-                f_cs_eval.write(file_name+'\n')
+                f_cs_eval.write(folder + file + '\n')
             else:
-                f_cs_train.write(file_name+'\n')
+                f_cs_train.write(folder + file + '\n')
 
         f_cs_train.close()
         f_cv_train.close()
         f_cs_eval.close()
         f_cv_eval.close()
-
