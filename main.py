@@ -57,7 +57,7 @@ def Init_parameters():
     parser = argparse.ArgumentParser(description='Richly Activated Graph Convolutional Network (RA-GCN) for Skeleton-based Action Recognition')
 
     # Data Path
-    parser.add_argument('--path', '-p', type=str, default='/data4/yfsong/NTU_RGBD/skeleton/', help='path to skeleton files')
+    parser.add_argument('--path', '-p', type=str, default='/data4/yfsong/NTU_RGBD', help='path to skeleton folder')
 
     # Config
     parser.add_argument('--config_id', '-c', type=str, default='', help='ID of the using config')
