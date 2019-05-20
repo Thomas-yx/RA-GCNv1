@@ -1,4 +1,5 @@
 import os
+import random
 import torch
 import numpy as np
 from torch.utils.data import Dataset
@@ -46,6 +47,16 @@ class NTU(Dataset):
                             location[0,frame,joint,person] = float(v[5])
                             location[1,frame,joint,person] = float(v[6])
 
+        if frame_num <= self.maxT:
+            data = data[:,:self.maxT,:,:]
+        else:
+            s = frame_num // self.maxT
+            r = random.randint(0, frame_num - self.maxT * s)
+            new_data = np.zeros((self.maxC, self.maxT, self.maxV, self.maxM))
+            for i in range(self.maxT):
+                new_data[:,i,:,:] = data[:,r+s*i,:,:]
+            data = new_data
+
         if self.transform:
             data = self.transform(data)
 
@@ -90,3 +101,4 @@ class NTU(Dataset):
         f_cv_train.close()
         f_cs_eval.close()
         f_cv_eval.close()
+
