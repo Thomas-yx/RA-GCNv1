@@ -34,6 +34,8 @@ Our models are experimented on the **NTU RGB+D** dataset [1], which can be downl
 
 We only need the **s001-s017 3D skeletons** data. 
 
+There are 302 samples need to be ignored, which are shown in the **datasets/ignore.txt**.
+
 ### 2.3 Pretrained Models
 
 Several pretrained models are provided, which include **baseline**, **2-stream RA-GCN** and **3-stream RA-GCN** for the **cross-subject (cs)** 
