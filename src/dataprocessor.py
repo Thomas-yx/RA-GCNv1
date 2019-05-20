@@ -25,11 +25,11 @@ class Occlusion_part():
         self.occlusion_part = occlusion_part
 
         self.parts = dict()
-        self.parts[0] = torch.Tensor([5, 6, 7, 8, 22, 23]).long() - 1              # left arm
-        self.parts[1] = torch.Tensor([9, 10, 11, 12, 24, 25]).long() - 1           # right arm
-        self.parts[2] = torch.Tensor([22, 23, 24, 25]).long() - 1                  # two hands
-        self.parts[3] = torch.Tensor([13, 14, 15, 16, 17, 18, 19, 20]).long() - 1  # two legs
-        self.parts[4] = torch.Tensor([1, 2, 3, 4, 21]).long() - 1                  # trunk
+        self.parts[1] = torch.Tensor([5, 6, 7, 8, 22, 23]).long() - 1              # left arm
+        self.parts[2] = torch.Tensor([9, 10, 11, 12, 24, 25]).long() - 1           # right arm
+        self.parts[3] = torch.Tensor([22, 23, 24, 25]).long() - 1                  # two hands
+        self.parts[4] = torch.Tensor([13, 14, 15, 16, 17, 18, 19, 20]).long() - 1  # two legs
+        self.parts[5] = torch.Tensor([1, 2, 3, 4, 21]).long() - 1                  # trunk
 
     def __call__(self, x):
         for part in self.occlusion_part:
