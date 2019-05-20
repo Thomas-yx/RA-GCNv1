@@ -207,7 +207,7 @@ class Processor():
                 U.save_checkpoint(self.model.module.state_dict(), self.optimizer.module.state_dict(), 
                                   epoch+1, best_acc, is_best, self.model_name)
             print('Finish training!')
-            print('Best accuracy: {:2.2f}%, Total time: {:.4f}s'.format(time.time()-start_time, best_acc))
+            print('Best accuracy: {:2.2f}%, Total time: {:.4f}s'.format(best_acc, time.time()-start_time))
 
 
     def extract(self):
