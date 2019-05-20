@@ -23,7 +23,8 @@ class NTU(Dataset):
 
     def __getitem__(self, idx):
         file_name = self.files[idx].strip()
-        label = int(file_name.split('A')[1]) - 1
+        label = file_name.split('.')[0]
+        label = int(label.split('A')[1]) - 1
 
         data = np.zeros((self.maxC, self.maxT, self.maxV, self.maxM))
         location = np.zeros((2, self.maxT, self.maxV, self.maxM))
