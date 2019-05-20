@@ -98,7 +98,19 @@ Before evaluating, you should ensure the trained model corresponding the config 
 python main.py -c <config_id> -e
 ```
 
-### 4.3 Visualization
+### 4.3 Occlusion
+
+Before occlusion experiments, you should ensure the trained model corresponding the config are already saved in the **'models'** folder. Then run
+```
+python main.py -c <config_id> -e -op <occlusion_part>
+(or)
+python main.py -c <config_id> -e -ot <occlusion_time>
+```
+where `<occlusion_part>` denotes the occluded part. (choices, [1,2,3,4,5] means left arm, right arm, two hands, two legs and trunk, respectively)
+
+`<occlusion_time>` denotes the number of occluded frames (choices, [10,20,30,40,50]).
+
+### 4.4 Visualization
 
 To visualize the details of the trained model, you can run
 ```
