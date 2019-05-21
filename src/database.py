@@ -92,10 +92,10 @@ class NTU(Dataset):
             else:
                 f_cv_train.write(folder + file + '\n')
 
-            if cs in [3,6,7,10,11,12,20,21,22,23,24,26,29,30,32,33,36,37,39,40]:
-                f_cs_eval.write(folder + file + '\n')
-            else:
+            if cs in [1, 2, 4, 5, 8, 9, 13, 14, 15, 16, 17, 18, 19, 25, 27, 28, 31, 34, 35, 38]:
                 f_cs_train.write(folder + file + '\n')
+            else:
+                f_cs_eval.write(folder + file + '\n')
 
         f_cs_train.close()
         f_cv_train.close()
