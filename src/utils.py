@@ -41,3 +41,12 @@ def save_checkpoint(model, optimizer, epoch, best, is_best, model_name):
     if is_best:
         shutil.copy('./models/checkpoint.pth.tar', './models/' + model_name + '.pth.tar')
 
+
+def str2bool(v):
+    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise ValueError('Cannot recognize the input parameter {}'.format(v))
+
