@@ -83,7 +83,7 @@ def Init_parameters():
     parser.add_argument('--subset', '-ss', type=str, default='cs', choices=['cs', 'cv'], help='benchmark of NTU dataset')
     parser.add_argument('--max_frame', '-mf', type=int, default=300, help='max frame number')
     parser.add_argument('--batch_size', '-bs', type=int, default=16, help='batch size')
-    parser.add_argument('--data_transform', '-dt', default=False, action='store_true', 
+    parser.add_argument('--data_transform', '-dt', type=str2bool, default=True, 
                         help='channel 0~2: original data, channel 3~5: next_frame - now_frame, channel 6~8: skeletons_all - skeleton_2')
     parser.add_argument('--occlusion_part', '-op', type=int, nargs='+', default=[], choices=[1, 2, 3, 4, 5], 
                         help='1:left arm, 2:right arm, 3:two hands, 4:two legs, 5:trunk')
@@ -91,7 +91,7 @@ def Init_parameters():
                         help='0 to 100, number of occlusion frames in first 100 frames')
 
     # Model
-    parser.add_argument('--pretrained', '-pt', default=False, action='store_true', help='load pretrained baseline for each stream')
+    parser.add_argument('--pretrained', '-pt', type=str2bool, default=True, help='load pretrained baseline for each stream')
     parser.add_argument('--model_stream', '-ms', type=int, default=3, help='number of model streames')
     parser.add_argument('--gcn_kernel_size', '-ks', type=int, nargs='+', default=[5,2], help='[temporal_window_size, spatial_max_distance]')
     parser.add_argument('--drop_prob', '-dp', type=int, default=0.5, help='dropout probability')
