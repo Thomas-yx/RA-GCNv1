@@ -93,7 +93,7 @@ def Init_parameters():
 
     # Model
     parser.add_argument('--pretrained', '-pt', type=U.str2bool, default=True, help='load pretrained baseline for each stream')
-    parser.add_argument('--model_stream', '-ms', type=int, default=3, help='number of model streames')
+    parser.add_argument('--model_stream', '-ms', type=int, default=3, help='number of model streams')
     parser.add_argument('--gcn_kernel_size', '-ks', type=int, nargs='+', default=[5,2], help='[temporal_window_size, spatial_max_distance]')
     parser.add_argument('--drop_prob', '-dp', type=int, default=0.5, help='dropout probability')
 
