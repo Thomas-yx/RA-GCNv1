@@ -31,7 +31,7 @@ class RA_GCN(nn.Module):
     def forward(self, inp):
 
         # multi stream
-        out = []
+        out = 0
         feature = []
         for stgcn, mask in zip(self.stgcn_stream, self.mask_stream):
             x = inp
@@ -46,8 +46,8 @@ class RA_GCN(nn.Module):
             temp_out, temp_feature = stgcn(x)
 
             # output
-            out.append(temp_out.unsqueeze(-1))
-            feature.append(temp_feature[0])
+            out += temp_out
+            feature.append(temp_feature)
         return out, feature
 
 
@@ -97,9 +97,8 @@ class ST_GCN(nn.Module):
             x = gcn(x, self.A * importance)
 
         # extract feature
-        feature = []
         _, c, t, v = x.shape
-        feature.append(x.view(N, M, c, t, v).permute(0, 2, 3, 4, 1))
+        feature = x.view(N, M, c, t, v).permute(0, 2, 3, 4, 1)
 
         # global pooling
         x = F.avg_pool2d(x, x.shape[2:])

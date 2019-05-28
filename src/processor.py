@@ -95,8 +95,7 @@ class Processor():
             y = y.to(self.device)
 
             # Calculating Output
-            out_stream, feature = self.model(x)
-            out = torch.sum(torch.cat(out_stream, dim=-1), dim=-1)
+            out, feature = self.model(x)
 
             # update mask matrices
             weight = self.get_weights(y)
@@ -132,8 +131,7 @@ class Processor():
                 y = y.to(self.device)
 
                 # Calculating Output
-                out_stream, _ = self.model(x)
-                out = torch.sum(torch.cat(out_stream, dim=-1), dim=-1)
+                out, _ = self.model(x)
 
                 # Calculating Accuracies
                 pred = out.max(1, keepdim=True)[1]
@@ -216,18 +214,17 @@ class Processor():
 
         # Loading Data
         x, l, y, name = iter(self.eval_loader).next()
-        location = l.numpy()
         
         # Using GPU
         x = x.to(self.device)
         y = y.to(self.device)
 
         # Calculating Output
-        out_stream, feature = self.model(x)
-        out = torch.sum(torch.cat(out_stream, dim=-1), dim=-1)
-        out = F.softmax(out, dim=1).detach().cpu().numpy()
+        out, feature = self.model(x)
+        out = F.softmax(out, dim=1)
 
         # Using CPU
+        out = out.detach().cpu().numpy()
         x = x.cpu().numpy()
         y = y.cpu().numpy()
 
@@ -239,6 +236,6 @@ class Processor():
             feature[i] = feature[i].detach().cpu().numpy()
 
         # Saving Feature
-        np.savez('./visualize.npz', feature=feature, out=out, weight=weight, label=y, location=location, name=name)
+        np.savez('./visualize.npz', feature=feature, out=out, weight=weight, label=y, location=l.numpy(), name=name)
         print('Finish extracting!\n')
 
