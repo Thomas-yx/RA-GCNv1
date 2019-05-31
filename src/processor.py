@@ -9,7 +9,7 @@ from torchvision import transforms
 
 import src.utils as U
 from src.database import NTU
-from src.dataprocessor import Data_transform, Occlusion_part, Occlusion_time
+from src.dataprocessor import *
 from src.graph import Graph
 from src.nets import RA_GCN
 from src.mask import Mask
