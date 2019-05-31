@@ -3,7 +3,7 @@ import numpy as np
 
 
 class Data_transform():
-    def __init__(self, data_transform):
+    def __init__(self, data_transform=True):
         self.data_transform = data_transform
 
     def __call__(self, x):
@@ -38,7 +38,7 @@ class Occlusion_part():
 
 
 class Occlusion_time():
-    def __init__(self, occlusion_time):
+    def __init__(self, occlusion_time=0):
         self.occlusion_time = int(occlusion_time // 2)
 
     def __call__(self, x):
