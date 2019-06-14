@@ -35,7 +35,7 @@ class Visualizer():
 
     def show_skeleton(self):
         C, T, V, M = self.location.shape
-        connecting_joint = np.array([2, 1, 21, 3, 21, 5, 6, 7, 21, 9, 10, 11, 1, 13, 14, 15, 1, 17, 18, 19, 2, 8, 8, 12, 12])
+        connecting_joint = np.array([2, 1, 21, 3, 21, 5, 6, 7, 21, 9, 10, 11, 1, 13, 14, 15, 1, 17, 18, 19, 2, 8, 8, 12, 12]) - 1
 
         result = np.maximum(self.result, 0)
         result = result/np.max(result)
@@ -61,7 +61,7 @@ class Visualizer():
                         g = 0
                         b = 1 - r
                         col.append([r, g, b])
-                        k = connecting_joint[v] - 1
+                        k = connecting_joint[v]
                         plt.plot([x[v],x[k]], [y[v],y[k]], '-o', c=(0.1,0.1,0.1), linewidth=0.5, markersize=0)
                     plt.scatter(x, y, marker='o', c=col, s=16)
                 plt.show()
@@ -90,7 +90,7 @@ class Visualizer():
                         g = 0
                         b = 1 - r
                         col.append([r, g, b])
-                        k = connecting_joint[v] - 1
+                        k = connecting_joint[v]
                         plt.plot([x[v],x[k]], [y[v],y[k]], '-o', c=(0.1,0.1,0.1), linewidth=0.5, markersize=0)
                     plt.scatter(x, y, marker='o', c=col, s=16)
                 plt.pause(0.1)
