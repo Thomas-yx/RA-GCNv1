@@ -57,7 +57,7 @@ class Visualizer():
 
                     col = []
                     for v in range(V):
-                        r = result[int(t/4),v,m]
+                        r = result[int(self.frames[t]/4),v,m]
                         g = 0
                         b = 1 - r
                         col.append([r, g, b])
