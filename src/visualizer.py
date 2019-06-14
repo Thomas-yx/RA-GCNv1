@@ -63,7 +63,7 @@ class Visualizer():
                         col.append([r, g, b])
                         k = connecting_joint[v] - 1
                         plt.plot([x[v],x[k]], [y[v],y[k]], '-o', c=(0.1,0.1,0.1), linewidth=0.5, markersize=0)
-                    plt.scatter(x[v], y[v], marker='o', c=(r,g,b), s=16)
+                    plt.scatter(x, y, marker='o', c=col, s=16)
                 plt.show()
 
         else:
