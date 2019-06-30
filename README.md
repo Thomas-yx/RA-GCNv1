@@ -34,7 +34,7 @@ Our models are experimented on the **NTU RGB+D** dataset [1], which can be downl
 
 We only need the **s001-s017 3D skeletons** data. 
 
-There are 302 samples need to be ignored, which are shown in the **datasets/ignore.txt**.
+There are 302 samples need to be ignored, which are shown in the **'datasets/ignore.txt'**.
 
 ### 2.3 Pretrained Models
 
@@ -55,7 +55,7 @@ Before training and evaluating, there are some parameters should be noticed.
 For example, if your skeleton files are stored in `<your_path>/nturgbd_skeletons_s001_to_s017/`, then the **'--path'** parameter should be set to `<your_path>`, e.g. `/data4/yfsong/NTU_RGBD`. Note that the folder which stores skeleton files must be named as `nturgbd_skeletons_s001_to_s017`.
 
 * (2) **'--config_id'** or **'-c'**: The config of RA-GCN. You must use this parameter in the command line or the program will output an error. 
-There are 4 configs given in the **configs** folder, which can be illustrated in the following tabel.
+There are 4 configs given in the **'configs'** folder, which can be illustrated in the following tabel.
 
 | config_id | 3301      | 3302      | 3303      | 3304      |
 | :-------: | :-------: | :-------: | :-------: | :-------: |
@@ -66,7 +66,7 @@ There are 4 configs given in the **configs** folder, which can be illustrated in
 you can add this parameter to the command line.
 
 * (4) **'--evaluate'** or **'-e'**: Only evaluate trained models. For evaluating, you should add this parameter to the command line. 
-The evaluating model will be seleted by the **'--config_id'** parameter.
+The evaluating model will be selected by the **'--config_id'** parameter.
 
 * (5) **'--extract'** or **'-ex'**: Extract features from a trained model for visualization. 
 Using this parameter will make a data file named **'visualize.npz'** at the current folder.
