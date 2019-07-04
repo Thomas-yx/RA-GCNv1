@@ -16,16 +16,16 @@ def check_gpu(gpus):
                 pynvml.nvmlShutdown()
                 raise ValueError('GPU{} are occupied!'.format(i))
         pynvml.nvmlShutdown()
-        return torch.device('cuda')
+        return 'cuda'
     else:
         print('Using CPU!')
-        return torch.device('cpu')
+        return 'cpu'
 
 
-def load_checkpoint(fname='checkpoint'):
+def load_checkpoint(device_type, fname='checkpoint'):
     fpath = './models/' + fname + '.pth.tar'
     if os.path.isfile(fpath):
-        checkpoint = torch.load(fpath)
+        checkpoint = torch.load(fpath, map_location=device_type)
         return checkpoint
     else:
         raise ValueError('Do NOT exist this checkpoint: {}'.format(fname))
