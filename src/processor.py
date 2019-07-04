@@ -25,7 +25,8 @@ class Processor():
         torch.manual_seed(args.seed)
         torch.cuda.manual_seed_all(args.seed)
         cudnn.benchmark = True
-        self.device = U.check_gpu(args.gpus)
+        self.device_type = U.check_gpu(args.gpus)
+        self.device = torch.device(self.device_type)
 
         # Data Loader Setting
         num_class = 60
