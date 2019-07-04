@@ -151,7 +151,7 @@ class Processor():
         if self.args.evaluate:
             # Loading evaluating model
             print('Loading evaluating model ...')
-            checkpoint = U.load_checkpoint(self.model_name)
+            checkpoint = U.load_checkpoint(self.device_type, self.model_name)
             self.model.module.load_state_dict(checkpoint['model'])
             self.optimizer.module.load_state_dict(checkpoint['optimizer'])
             print('Successful!\n')
@@ -168,7 +168,7 @@ class Processor():
             start_epoch, best_acc = 0, 0
             if self.args.resume:
                 print('Loading checkpoint ...')
-                checkpoint = U.load_checkpoint()
+                checkpoint = U.load_checkpoint(self.device_type)
                 self.model.module.load_state_dict(checkpoint['model'])
                 self.optimizer.module.load_state_dict(checkpoint['optimizer'])
                 start_epoch = checkpoint['epoch']
@@ -211,6 +211,13 @@ class Processor():
     def extract(self):
         print('Starting extracting ...')
         self.model.module.eval()
+        
+        # Loading extracting model
+        print('Loading extracting model ...')
+        checkpoint = U.load_checkpoint(self.device_type, self.model_name)
+        self.model.module.load_state_dict(checkpoint['model'])
+        self.optimizer.module.load_state_dict(checkpoint['optimizer'])
+        print('Successful!\n')
 
         # Loading Data
         x, l, y, name = iter(self.eval_loader).next()
