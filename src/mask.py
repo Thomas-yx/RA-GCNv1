@@ -2,6 +2,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
+
 class Mask(nn.Module):
     def __init__(self, model_stream, module):
         super(Mask, self).__init__()
@@ -19,7 +20,7 @@ class Mask(nn.Module):
                     mask = result[j]
                 else:
                     mask *= result[j]
-            mask = torch.cat([mask.unsqueeze(2)] * 4, dim=1)
+            mask = torch.cat([mask.unsqueeze(1)] * 4, dim=1)
             self.module.mask_stream[i].data = mask.view(-1).detach()
     
     def CAM(self, weight, feature):
