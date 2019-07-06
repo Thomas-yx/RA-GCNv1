@@ -19,7 +19,7 @@ class Mask(nn.Module):
                     mask = result[j]
                 else:
                     mask *= result[j]
-            mask = torch.cat([mask.unsqueeze(2)] * 4, dim=2)
+            mask = torch.cat([mask.unsqueeze(2)] * 4, dim=1)
             self.module.mask_stream[i].data = mask.view(-1).detach()
     
     def CAM(self, weight, feature):
