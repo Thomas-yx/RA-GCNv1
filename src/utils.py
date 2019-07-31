@@ -14,7 +14,7 @@ def check_gpu(gpus):
             print('GPU{} used: {}M'.format(i, memused))
             if memused > 1000:
                 pynvml.nvmlShutdown()
-                raise ValueError('GPU{} are occupied!'.format(i))
+                raise ValueError('GPU{} is occupied!'.format(i))
         pynvml.nvmlShutdown()
         return 'cuda'
     else:
