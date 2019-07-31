@@ -56,7 +56,6 @@ class Processor():
 
         # Optimizer Setting
         self.optimizer = torch.optim.SGD(self.model.parameters(), lr=args.learning_rate, momentum=0.9, weight_decay=0.0001, nesterov=True)
-        self.optimizer = nn.DataParallel(self.optimizer)
 
         # Loss Function Setting
         self.loss_func = nn.CrossEntropyLoss()
@@ -82,7 +81,7 @@ class Processor():
     def adjust_lr(self, epoch):
         # LR decay
         if epoch in self.args.adjust_lr:
-            for param_group in self.optimizer.module.param_groups:
+            for param_group in self.optimizer.param_groups:
                 param_group['lr'] /= 10
 
 
@@ -106,9 +105,9 @@ class Processor():
             loss = self.loss_func(out, y)
 
             # Loss Backward
-            self.optimizer.module.zero_grad()
+            self.optimizer.zero_grad()
             loss.backward()
-            self.optimizer.module.step()
+            self.optimizer.step()
 
             # Calculating Accuracies
             pred = out.max(1, keepdim=True)[1]
@@ -154,7 +153,7 @@ class Processor():
             print('Loading evaluating model ...')
             checkpoint = U.load_checkpoint(self.device_type, self.model_name)
             self.model.module.load_state_dict(checkpoint['model'])
-            self.optimizer.module.load_state_dict(checkpoint['optimizer'])
+            self.optimizer.load_state_dict(checkpoint['optimizer'])
             print('Successful!\n')
 
             # Start evaluating
@@ -171,7 +170,7 @@ class Processor():
                 print('Loading checkpoint ...')
                 checkpoint = U.load_checkpoint(self.device_type)
                 self.model.module.load_state_dict(checkpoint['model'])
-                self.optimizer.module.load_state_dict(checkpoint['optimizer'])
+                self.optimizer.load_state_dict(checkpoint['optimizer'])
                 start_epoch = checkpoint['epoch']
                 best_acc = checkpoint['best']
                 print('Successful!\n')
@@ -203,7 +202,7 @@ class Processor():
                         is_best = True
 
                 # Saving model
-                U.save_checkpoint(self.model.module.state_dict(), self.optimizer.module.state_dict(), 
+                U.save_checkpoint(self.model.module.state_dict(), self.optimizer.state_dict(), 
                                   epoch+1, best_acc, is_best, self.model_name)
             print('Finish training!')
             print('Best accuracy: {:2.2f}%, Total time: {:.4f}s'.format(best_acc, time.time()-start_time))
@@ -212,12 +211,12 @@ class Processor():
     def extract(self):
         print('Starting extracting ...')
         self.model.module.eval()
-        
+
         # Loading extracting model
         print('Loading extracting model ...')
         checkpoint = U.load_checkpoint(self.device_type, self.model_name)
         self.model.module.load_state_dict(checkpoint['model'])
-        self.optimizer.module.load_state_dict(checkpoint['optimizer'])
+        self.optimizer.load_state_dict(checkpoint['optimizer'])
         print('Successful!\n')
 
         # Loading Data
