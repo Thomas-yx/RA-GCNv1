@@ -29,10 +29,10 @@ pip install -r requirements.txt
 
 ### 2.2 Experimental Dataset
 
-Our models are experimented on the **NTU RGB+D** dataset [1], which can be download from 
+Our models are experimented on the **NTU RGB+D** dataset [1], which can be downloaded from 
 [here](http://rose1.ntu.edu.sg/datasets/actionrecognition.asp).
 
-We only need the **s001-s017 3D skeletons** data. 
+We only use the **s001-s017 3D skeletons** data. 
 
 There are 302 samples need to be ignored, which are shown in the **'datasets/ignore.txt'**.
 
