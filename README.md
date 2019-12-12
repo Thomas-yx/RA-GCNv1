@@ -3,7 +3,7 @@
 ## 1 Paper Details
 
 Yi-Fan Song, Zhang Zhang and Liang Wang. **RICHLY ACTIVATED GRAPH CONVOLUTIONAL NETWORK FOR ACTION RECOGNITION 
-WITH INCOMPLETE SKELETONS.** In ICIP, 2019. [[Arxiv Preprint]](https://arxiv.org/pdf/1905.06774.pdf)
+WITH INCOMPLETE SKELETONS.** In ICIP, 2019. [[Arxiv Preprint]](https://arxiv.org/pdf/1905.06774.pdf) [[IEEE ICIP 2019]](https://ieeexplore.ieee.org/document/8802917)
 
 RA-GCN is a GCN model for incomplete skeleton-based action recognition. The following picture is the pipeline of RA-GCN.
 <div align="center">
