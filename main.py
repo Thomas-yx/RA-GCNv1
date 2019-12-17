@@ -99,7 +99,7 @@ def Init_parameters():
 
     # Optimizer
     parser.add_argument('--max_epoch', '-me', type=int, default=50, help='max training epoch')
-    parser.add_argument('--learning_rate', '-lr', type=int, default=0.1, help='initial learning rate')
+    parser.add_argument('--learning_rate', '-lr', type=float, default=0.1, help='initial learning rate')
     parser.add_argument('--adjust_lr', '-al', type=int, nargs='+', default=[10,30], help='divide learning rate by 10')
 
     return parser
