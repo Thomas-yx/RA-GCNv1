@@ -167,7 +167,7 @@ Please cite our paper when you use this code in your reseach.
 @InProceedings{song2019richly,
   title        = {RICHLY ACTIVATED GRAPH CONVOLUTIONAL NETWORK FOR ACTION RECOGNITION WITH INCOMPLETE SKELETONS},
   author       = {Yi-Fan Song and Zhang Zhang and Liang Wang},
-  booktitle    = {ICIP},
+  booktitle    = {International Conference on Image Processing (ICIP)},
   organization = {IEEE},
   year         = {2019},
 }
