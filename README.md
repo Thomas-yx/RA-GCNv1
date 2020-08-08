@@ -41,7 +41,7 @@ There are 302 samples need to be ignored, which are shown in the **'datasets/ign
 Several pretrained models are provided, which include **baseline**, **2-stream RA-GCN** and **3-stream RA-GCN** for the **cross-subject (cs)** 
 and **cross-view (cv)** benchmarks of the **NTU RGB+D** dataset [1]. The baseline model also means 1-stream RA-GCN.
 
-These models can be downloaded from [BaiduYun](https://pan.baidu.com/s/17F0QDxEuxBqOCDRiXU-UoA) or 
+These models can be downloaded from [BaiduYun]() or 
 [GoogleDrive](https://drive.google.com/drive/folders/1ajLfO81jYApe-0GZs4lJOysxMF15L3cz?usp=sharing).
 
 You should put these models into the **'models'** folder.
@@ -57,7 +57,7 @@ For example, if your skeleton files are stored in `<your_path>/nturgbd_skeletons
 * (2) **'--config_id'** or **'-c'**: The config of RA-GCN. You must use this parameter in the command line or the program will output an error. 
 There are 4 configs given in the **'configs'** folder, which can be illustrated in the following tabel.
 
-| config_id | 3301      | 3302      | 3303      | 3304      |
+| config_id | 1001      | 1002      | 1003      | 1004      |
 | :-------: | :-------: | :-------: | :-------: | :-------: |
 | model     | 3s RA-GCN | 2s RA-GCN | 3s RA-GCN | 2s RA-GCN |
 | benchmark | cs        | cs        | cv        | cv        |
@@ -86,7 +86,7 @@ You can simply train the model by
 ```
 python main.py -c <config_id>
 ```
-where `<config_id>` is the config file name in the **'configs'** folder, e.g. 3301.
+where `<config_id>` is the config file name in the **'configs'** folder, e.g. 1001.
 
 If you want to restart training from the saved checkpoint last time, you can run
 ```
