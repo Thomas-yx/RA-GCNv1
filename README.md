@@ -2,8 +2,9 @@
 
 ## 1 Paper Details
 
-Yi-Fan Song, Zhang Zhang and Liang Wang. **RICHLY ACTIVATED GRAPH CONVOLUTIONAL NETWORK FOR ACTION RECOGNITION 
-WITH INCOMPLETE SKELETONS.** In ICIP, 2019. [[Arxiv Preprint]](https://arxiv.org/pdf/1905.06774.pdf) [[IEEE ICIP 2019]](https://ieeexplore.ieee.org/document/8802917)
+Yi-Fan Song, Zhang Zhang and Liang Wang. **RICHLY ACTIVATED GRAPH CONVOLUTIONAL NETWORK FOR ACTION RECOGNITION WITH INCOMPLETE SKELETONS.** In ICIP, 2019. [[IEEE ICIP 2019]](https://ieeexplore.ieee.org/document/8802917) [[Arxiv Preprint]](https://arxiv.org/pdf/1905.06774.pdf)
+
+Latest version (RA-GCN v2.0): [[Github]](https://github.com/yfsong0709/RA-GCNv2) [[IEEE TCSVT 2020]](https://ieeexplore.ieee.org/document/9162143) [[Arxiv Preprint]](https://arxiv.org/pdf/2008.03791.pdf)
 
 RA-GCN is a GCN model for incomplete skeleton-based action recognition. The following picture is the pipeline of RA-GCN.
 <div align="center">
@@ -41,7 +42,7 @@ There are 302 samples need to be ignored, which are shown in the **'datasets/ign
 Several pretrained models are provided, which include **baseline**, **2-stream RA-GCN** and **3-stream RA-GCN** for the **cross-subject (cs)** 
 and **cross-view (cv)** benchmarks of the **NTU RGB+D** dataset [1]. The baseline model also means 1-stream RA-GCN.
 
-These models can be downloaded from [BaiduYun]() or 
+These models can be downloaded from [BaiduYun](https://pan.baidu.com/s/17F0QDxEuxBqOCDRiXU-UoA) or 
 [GoogleDrive](https://drive.google.com/drive/folders/1ajLfO81jYApe-0GZs4lJOysxMF15L3cz?usp=sharing).
 
 You should put these models into the **'models'** folder.
@@ -108,7 +109,7 @@ python main.py -c <config_id> -e -op <occlusion_part>
 (or)
 python main.py -c <config_id> -e -ot <occlusion_time>
 ```
-where `<occlusion_part>` denotes the occluded part (choices, [1,2,3,4,5] means left arm, right arm, two hands, two legs and trunk, respectively), 
+where `<occlusion_part>` denotes the occluded part (choices, [1,2,3,4,5] means left arm, right arm, two hands, two legs and trunk, respectively),
 `<occlusion_time>` denotes the number of occluded frames (choices, [10,20,30,40,50]).
 
 ### 4.4 Visualization
@@ -171,6 +172,14 @@ Please cite our paper when you use this code in your reseach.
   organization = {IEEE},
   year         = {2019},
 }
+
+@InProceedings{song2020richly,
+  title        = {Richly Activated Graph Convolutional Network for Robust Skeleton-based Action Recognition},
+  author       = {Yi-Fan Song and Zhang Zhang and Caifeng Shan and Liang Wang},
+  booktitle    = {IEEE Transaction on Circuits and Systems for Video Technology (TCSVT)},
+  organization = {IEEE},
+  year         = {2020},
+}
 ```
 
 
@@ -184,4 +193,3 @@ convolutional networks for skeleton-based action recognition. In AAAI, 2018.
 
 [[3]](https://arxiv.org/pdf/1805.02335.pdf) Chenyang Si, Ya Jing, Wei Wang, Liang Wang and Tieniu Tan. Skeleton-Based 
 Action Recognition with Spatial Reasoning and Temporal Stack Learning. In ECCV, 2018.
-
